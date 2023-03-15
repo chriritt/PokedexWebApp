@@ -2,6 +2,7 @@
 	ViewData["Title"] = "Pokemon";
 }
 
+@model List<Pokedex.API.ApiModels.PokemonModel.Pokemon>
 
 <link rel="stylesheet" href="/css/styles.css">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -12,12 +13,12 @@
 			<div class="col-md-7 col-sm-6">
 
 				<div class="content-title">
-					<h1>Welcome to the world of <span>Pokémon</span>!</h1>
+					<h1>List of <span>Pokémon</span> registered in the Pokédex!</h1>
 					<br />
-					<h3>What is a Pokémon?</h3>
+					<h3>Gotta catch 'em all!</h3>
 
 					<br />
-					<p>Pokémon are the creatures that inhabit the world of the Pokémon games. They can be caught using Pokéballs and trained by battling with other Pokémon. Each Pokémon belongs to a specific species but may take on a variant which makes it differ from other Pokémon of the same species, such as base stats, available abilities and typings.</p>
+					<p>Add a Pokémon to your Battle Team or mark them as caught!</p>
 				</div>
 			</div>
 		</div>
@@ -25,31 +26,33 @@
 </div>
 
 <div class="flex-container">
-	<div class="container" style="margin-top:50px; margin-right:50px; width:300px;">
-		<div class="row">
-			<div class="col-md-3">
-				<div class="card-sl">
-					<div class="card-image">
-						<img src="/assets/pikachu-sprite-test.png" />
-					</div>
+@foreach (var poke in Model){
 
-					<a class="card-action" href="#"><i class='bx bx-heart'></i></a>
-					<div class="card-heading">
-						Pikachu
+			<div class="container" style="margin-top:50px; margin-right:50px; width:300px;">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="card-sl">
+							<div class="card-image">
+								<img src="/assets/pikachu-sprite-test.png" />
+							</div>
+
+							<a class="card-action" href="#"><i class='bx bx-heart'></i></a>
+							<div class="card-heading">
+								@Html.DisplayFor(model => poke.Name)
+							</div>
+							@*<div class="card-text">
+								Test
+							</div>
+							<div class="card-text">
+								Test
+							</div>
+							<div class="card-text">
+								Electric
+							</div>*@
+							<a href="#" class="card-button">Add to Team</a>
+						</div>
 					</div>
-					<div class="card-text">
-						Test
-					</div>
-					<div class="card-text">
-						Test
-					</div>
-					<div class="card-text">
-						Electric
-					</div>
-					<a href="#" class="card-button">Add to Team</a>
 				</div>
 			</div>
-		</div>
-	</div>
-</div>
+			}
 </div>

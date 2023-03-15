@@ -18,12 +18,12 @@ namespace Pokedex.Controllers
 			return View();
 			}
 
-		public IActionResult Pokemon()
+		public IActionResult CaughtChecklist()
 			{
 			return View();
 			}
 
-		public IActionResult CaughtChecklist()
+		public IActionResult Pokemon()
 			{
 			return View();
 			}

@@ -1,6 +1,6 @@
 ﻿namespace Pokedex.Db.DbModels
 	{
-	public class TeamModel : PokemonModel
+	public class TeamModel
 		{
 		public int Id { get; set; }
 		public string? TeamName { get; set; }

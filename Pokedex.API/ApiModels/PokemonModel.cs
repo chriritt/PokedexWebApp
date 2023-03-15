@@ -26,15 +26,6 @@ namespace Pokedex.API.ApiModels
             public object Previous { get; set; }
             [JsonProperty("results")]
             public List<Pokemon> Results { get; set; }
-
-            /*public static List<Pokemon> GetPokemon(int offset)
-				{
-				var PokeCallTask = PokemonClient.PokeApiCall(offset);
-				var result = PokeCallTask.Result;
-
-				JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
-				List<Pokemon> pokemonList = JsonConvert.DeserializeObject<List<Pokemon>>(jsonResponse["results"].ToString());
-				return pokemonList;*/
             }
         }
     }

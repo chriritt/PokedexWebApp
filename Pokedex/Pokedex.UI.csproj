@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pokedex.API\Pokedex.Api.csproj" />
+    <ProjectReference Include="..\Pokedex.API\Pokedex.API.csproj" />
   </ItemGroup>
 
 </Project>
