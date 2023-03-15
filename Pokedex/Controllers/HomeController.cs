@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Pokedex.Models;
 using System.Diagnostics;
+using static Pokedex.API.ApiModels.PokemonModel;
 
 namespace Pokedex.Controllers
 	{
@@ -23,9 +25,18 @@ namespace Pokedex.Controllers
 			return View();
 			}
 
-		public IActionResult Pokemon()
+		public async Task<IActionResult> Pokemon()
 			{
-			return View();
+			var pokeClient = new HttpClient();
+
+			var baseUrl = $"https://pokeapi.co/api/v2/pokemon?limit=1281";
+
+			var apiResponse = await pokeClient.GetAsync(baseUrl);
+			apiResponse.EnsureSuccessStatusCode();
+			var response = await apiResponse.Content.ReadAsStringAsync();
+			var pokeApiResult = JsonConvert.DeserializeObject<PokeApiResults>(response);
+
+			return View(pokeApiResult.Results);
 			}
 
 		public IActionResult TeamBuilder()

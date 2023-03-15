@@ -1,4 +1,4 @@
-/* Google Font Import - Poppins */
+﻿/* Google Font Import - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -292,6 +292,7 @@ header .image-text .Title {
     left: 400px;
     padding-top: 100px;
     padding-right: 100px;
+    padding-bottom: 100px;
     height: auto;
     width: calc(100% - 400px);
     background-color: var(--onyx);
@@ -386,8 +387,6 @@ strong {
 
 
 
-
-
 /* Card Styles */
 
 .flex-container {
@@ -466,8 +465,30 @@ strong {
     .card-button:hover {
         text-decoration: none;
         background-color: var(--pokeball-red-dark);
-        color: #fff;
+        color: var(--antiflash-white);
     }
+
+
+.load-more-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 300px;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--pokemon-blue);
+    color: var(--antiflash-white);
+    border-radius: 6px 6px 6px 6px;
+}
+    .load-more-button:hover {
+        text-decoration: none;
+        background-color: var(--pokemon-blue-dark);
+        color: var(--antiflash-white);
+    }
+
 
 
 @-webkit-keyframes pulse {
