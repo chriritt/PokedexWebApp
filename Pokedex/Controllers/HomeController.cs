@@ -25,11 +25,13 @@ namespace Pokedex.Controllers
 			return View();
 			}
 
+		// Handles Api calls for the Pokemon Page
 		public async Task<IActionResult> Pokemon()
 			{
 			var pokeClient = new HttpClient();
+			var offset = 0;
 
-			var baseUrl = $"https://pokeapi.co/api/v2/pokemon?limit=1281";
+			var baseUrl = $"https://pokeapi.co/api/v2/pokemon?offset={offset}";
 
 			var apiResponse = await pokeClient.GetAsync(baseUrl);
 			apiResponse.EnsureSuccessStatusCode();
@@ -38,6 +40,7 @@ namespace Pokedex.Controllers
 
 			return View(pokeApiResult.Results);
 			}
+
 
 		public IActionResult TeamBuilder()
 			{

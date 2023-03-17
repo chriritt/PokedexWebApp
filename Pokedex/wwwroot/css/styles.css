@@ -438,7 +438,7 @@ strong {
     border-top: solid 5px var(--pokemon-blue);
     font-size: 22px;
     font-weight: bold;
-    color: var(--pokemon-blue-dark);
+    color: var(--onyx);
     background: var(--seasalt-gray);
     padding: 15px 15px;
 }
