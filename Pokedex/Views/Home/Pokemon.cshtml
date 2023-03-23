@@ -25,37 +25,26 @@
 	</div>
 </div>
 
-<div class="flex-container">
-@foreach (var poke in Model){
+<div class="pokemon-list-container">
+  <ul class="pokemon-table">
+    <li class="table-header">
+			<div class="col col-1"></div>
+      <div class="col col-2">Pokemon Name</div>
+      <div class="col col-3">Caught?</div>
+      <div class="col col-4">Add to Team?</div>
+    </li>
+	@foreach (var poke in Model) {
+			<li class="table-row">
+				<div class="col col-1" data-label="More Info"><i class='bx bx-chevron-right'></i></div>
+				<div class="col col-2" data-label="Pokemon Name">@Html.DisplayFor(model => poke.Name)</div>
+				<div class="col col-3" data-label="Caught"><i class='bx bx-heart'></i></div>
+				<div class="col col-4" data-label="Add to Team"><button class="add-to-team">Add to Team</button></div>
+			</li>
+	}
+		</ul>
 
-			<div class="container" style="margin-top:50px; margin-right:50px; width:300px;">
-				<div class="row">
-					<div class="col-md-3">
-						<div class="card-sl">
-							<div class="card-image">
-								<img src="/assets/pikachu-sprite-test.png" />
-							</div>
-
-							<a class="card-action" href="#"><i class='bx bx-heart'></i></a>
-							<div class="card-heading">
-							@Html.DisplayFor(model => poke.Name)
-							</div>
-@*							<div class="card-text">
-								Test
-							</div>
-							<div class="card-text">
-								Test
-							</div>
-							<div class="card-text">
-								Type: Electric
-							</div>*@
-							<a href="#" class="card-button">Add to Team</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			}
 </div>
+
 <br />
 <br />
 <br />
