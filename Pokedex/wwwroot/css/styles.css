@@ -385,6 +385,10 @@ i {
     height: 50px;
 }
 
+.add-to-team:hover{
+    background-color: var(--pokemon-yellow-dark);
+}
+
 @media all and (max-width: 767px) {
     .pokemon-table .table-header {
         display: none;
