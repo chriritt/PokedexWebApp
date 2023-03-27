@@ -25,8 +25,11 @@
 	</div>
 </div>
 
-<div class="md-form mt-0 col-xs-2">
-	<input class="form-control search" type="text" placeholder="Search Pokemon..." aria-label="Search">
+<div class="pokemon-search">
+		<div class="search-box">
+		@*<img class="icon-png" src="/assets/nav-icons/magnifier.png" alt="Search for a Pokemon"/>*@
+		<input type="text" placeholder="Search for a Pokémon by Name or ID">
+		</div>
 </div>
 
 <div class="pokemon-list-container">
@@ -39,9 +42,9 @@
 	</li>
 	@for (int i = 0; i < Model.Count; i++) {
 			<li class="table-row">
-				<div class="col col-1" data-label="More Info">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
+				<div class="col col-1" data-label="Sprite">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
 				<div class="col col-2" data-label="Pokemon Name">@Model[i].name</div>
-				<div class="col col-3" data-label="Caught"><i class='bx bx-heart'></i></div>
+				<div class="col col-3" data-label="Caught"><i id="heart" class='bx bx-heart'></i></div>
 				<div class="col col-4" data-label="Add to Team"><button class="add-to-team">Add to Team</button></div>
 			</li>
 	}

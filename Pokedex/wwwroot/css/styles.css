@@ -190,31 +190,7 @@ header .image-text .Title {
     margin-top: 100px;
 }
 
-.sidebar li.search-box {
-    border-radius: 6px;
-    background-color: var(--onyx);
-    cursor: pointer;
-    transition: var(--tran-05);
-}
 
-    .sidebar li.search-box .icon-png {
-        height: 100%;
-        max-height: 30px;
-    }
-
-    .sidebar li.search-box input {
-        padding-right: 10px;
-        height: 100%;
-        width: 100%;
-        outline: none;
-        border: none;
-        background-color: var(--onyx);
-        color: var(--antiflash-white);
-        border-radius: 6px;
-        font-size: 20px;
-        font-weight: 300;
-        transition: var(--tran-05);
-    }
 
 .sidebar li a {
     list-style: none;
@@ -315,6 +291,43 @@ header .image-text .Title {
 
 /* ===== Pokemon Table Styling ===== */
 
+.pokemon-search div.search-box {
+    display: flex;
+    font-size: 24px;
+    border-radius: 6px;
+    background-color: var(--outer-space);
+    cursor: pointer;
+    transition: var(--tran-05);
+    height: 60px;
+    color: var(--french-gray-dark);
+    padding-left: 20px;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+    .pokemon-search div.search-box .icon-png {
+        height: 100%;
+        max-height: 30px;
+        padding-right: 20px;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .pokemon-search div.search-box input {
+        padding-right: 10px;
+        height: 100%;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: var(--outer-space);
+        color: var(--antiflash-white);
+        border-radius: 6px;
+        font-size: 24px;
+        font-weight: 500;
+        transition: var(--tran-05);
+    }
+
 .pokemon-list-container {
     width: 100%;
     margin-left: auto;
@@ -323,7 +336,6 @@ header .image-text .Title {
 
 .pokemon-table li {
     border-radius: 6px;
-    padding: 25px 30px;
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -332,16 +344,18 @@ header .image-text .Title {
 .pokemon-table .table-header {
     align-items: center;
     justify-content: center;
-    background-color: #0075BE;
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
+    background-color: var(--pokemon-yellow);
+    padding: 20px 25px;
+    color: var(--onyx);
+    font-size: 24px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
 }
 
 .pokemon-table .table-row {
+    padding: 0px 25px;
     text-transform: capitalize;
     align-items: center;
     justify-content: center;
@@ -352,35 +366,49 @@ header .image-text .Title {
 }
 
 .pokemon-table .col-1 {
-    flex-basis: 20%;
+    flex-basis: 10%;
     text-align: left;
     justify-content: left;
 }
 
 .pokemon-table .col-2 {
     flex-basis: 40%;
+    text-align: left;
+    padding-left: 40px;
+}
+
+.pokemon-table .table-row .col-2 {
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .pokemon-table .col-3 {
     flex-basis: 25%;
-    text-align: center;
+    text-align: right;
+    padding-right: 40px
 }
 
 .pokemon-table .col-4 {
-    flex-basis: 25%;
-    text-align: center;
+    flex-basis: 20%;
+    text-align: right;
 }
 
 i {
-    font-size: 35px;
+    font-size: 40px;
     cursor: pointer;
+}
+
+i:hover {
+    font-family: Boxicons;
+    content: "\ede2";
 }
 
 .add-to-team {
     cursor: pointer;
     font-size: 22px;
     font-weight: 500;
-    background-color: var(--pokemon-yellow);
+    background-color: var(--pokemon-blue);
+    color: var(--antiflash-white);
     border: 0px solid transparent;
     border-radius: 6px;
     width: 175px;
@@ -388,7 +416,7 @@ i {
 }
 
 .add-to-team:hover{
-    background-color: var(--pokemon-yellow-dark);
+    background-color: var(--pokemon-blue-dark);
 }
 
 @media all and (max-width: 767px) {
