@@ -32,15 +32,15 @@
 <div class="pokemon-list-container">
   <ul class="pokemon-table">
 	<li class="table-header">
-		  <div class="col col-1"><i class='bx bx-info-circle'></i></div>
+		  <div class="col col-1">Sprite</div>
 		  <div class="col col-2">Pokemon Name</div>
 		  <div class="col col-3">Caught?</div>
 		  <div class="col col-4">Add to Team?</div>
 	</li>
-	@foreach (var poke in Model) {
+	@for (int i = 0; i < Model.Count; i++) {
 			<li class="table-row">
-				<div class="col col-1" data-label="More Info"><i class='bx bx-chevron-right'></i></div>
-				<div class="col col-2" data-label="Pokemon Name">@Html.DisplayFor(model => poke.name)</div>
+				<div class="col col-1" data-label="More Info">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
+				<div class="col col-2" data-label="Pokemon Name">@Model[i].name</div>
 				<div class="col col-3" data-label="Caught"><i class='bx bx-heart'></i></div>
 				<div class="col col-4" data-label="Add to Team"><button class="add-to-team">Add to Team</button></div>
 			</li>

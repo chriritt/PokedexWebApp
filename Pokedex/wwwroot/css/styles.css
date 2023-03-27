@@ -352,7 +352,9 @@ header .image-text .Title {
 }
 
 .pokemon-table .col-1 {
-    flex-basis: 10%;
+    flex-basis: 20%;
+    text-align: left;
+    justify-content: left;
 }
 
 .pokemon-table .col-2 {
