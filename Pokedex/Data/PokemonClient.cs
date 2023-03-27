@@ -1,14 +1,14 @@
 ﻿using Newtonsoft.Json;
-using Pokedex.API.ApiModels;
+using Pokedex.Models;
 
-namespace Pokedex.API.Clients
+namespace Pokedex.UI.Data
 	{
-	public class PokemonDataFetcher
+	public class PokemonClient
 		{
 		public static async Task<List<Pokemon>> GetPokemon()
 			{
 			HttpClient request = new HttpClient();
-			var response = await request.GetStringAsync("https://pokeapi.co/api/v2/pokemon?limit=1010");
+			var response = await request.GetStringAsync("https://pokeapi.co/api/v2/pokemon?limit=150");
 			PokemonParser poke = JsonConvert.DeserializeObject<PokemonParser>(response);
 			return poke.results;
 			}

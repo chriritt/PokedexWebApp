@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Pokedex.Db.Repository;
 using Pokedex.Models;
+using Pokedex.UI.Data;
 using System.Diagnostics;
-using static Pokedex.API.ApiModels.PokemonModel;
 
 namespace Pokedex.Controllers
 	{
@@ -30,16 +29,12 @@ namespace Pokedex.Controllers
 		// Handles Api calls for the Pokemon Page
 		public async Task<IActionResult> Pokemon()
 			{
-			var pokeClient = new HttpClient();
-
-			var baseUrl = $"https://pokeapi.co/api/v2/pokemon-species?limit=10000";
-
-			var apiResponse = await pokeClient.GetAsync(baseUrl);
-			apiResponse.EnsureSuccessStatusCode();
-			var response = await apiResponse.Content.ReadAsStringAsync();
-			var pokeApiResult = JsonConvert.DeserializeObject<PokeApiResults>(response);
-
-			return View(pokeApiResult.Results);
+			List<Pokemon> list = new List<Pokemon>();
+			Task.Run(async () =>
+			{
+				list = await PokemonClient.GetPokemon();
+			}).GetAwaiter().GetResult();
+			return View(list);
 			}
 
 
