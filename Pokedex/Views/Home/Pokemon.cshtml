@@ -2,7 +2,7 @@
 	ViewData["Title"] = "Pokemon";
 }
 
-@model List<Pokedex.Models.Pokemon>
+@*@model List<Pokedex.Models.Pokemon>*@
 
 <link rel="stylesheet" href="/css/styles.css">
 <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -32,6 +32,8 @@
 		</div>
 </div>
 
+
+
 <div class="pokemon-list-container">
   <ul class="pokemon-table">
 	<li class="table-header">
@@ -45,15 +47,12 @@
 				<div class="col col-1" data-label="Sprite">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
 				<div class="col col-2" data-label="Pokemon Name">@Model[i].name</div>
 				<div class="col col-3" data-label="Caught"><i id="heart" class='bx bx-heart'></i></div>
-				<div class="col col-4" data-label="Add to Team"><button class="add-to-team">Add to Team</button></div>
+				<div class="col col-4" data-label="Add to Team"><button class="solid-button">Add to Team</button></div>
 			</li>
 	}
 		</ul>
 
 </div>
-
-
-// search functionality
 
 <script src="lib/jquery/dist/jquery.min.js"></script>
 

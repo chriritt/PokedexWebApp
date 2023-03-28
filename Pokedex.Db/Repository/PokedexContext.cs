@@ -5,20 +5,20 @@ namespace Pokedex.Db.Repository
 	{
 	public class PokedexContext : DbContext
 		{
-		public DbSet<TeamModel> Teams { get; set; }
-		public DbSet<PokemonTeamMember> Pokemans { get; set; }
+		public DbSet<Team> Teams { get; set; }
+		public DbSet<PokemonTeam> Pokemans { get; set; }
 		public DbSet<CaughtPokemon> CaughtPokemon { get; set; }
 
-		public string DbPath { get; } //or this
+		public string DbPath { get; }
 
 		public PokedexContext()
 			{
 			var folder = Environment.SpecialFolder.LocalApplicationData;
 			var path = Environment.GetFolderPath(folder);
-			DbPath = Path.Join(path, "Pokemon.db"); //may not need this
+			DbPath = Path.Join(path, "Pokedex.db");
 			}
 
-		/*protected override void OnConfiguring(DbContextOptionsBuilder options)
-		=> options.UseSqlite($"Data Source=Pokemon.db");*/
+		protected override void OnConfiguring(DbContextOptionsBuilder options)
+				=> options.UseSqlite($"Data Source={DbPath}");
 		}
 	}

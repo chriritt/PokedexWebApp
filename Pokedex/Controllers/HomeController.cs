@@ -27,6 +27,7 @@ namespace Pokedex.Controllers
 			}
 
 		// Handles Api calls for the Pokemon Page
+
 		public async Task<IActionResult> Pokemon()
 			{
 			List<Pokemon> list = new List<Pokemon>();
@@ -37,8 +38,7 @@ namespace Pokedex.Controllers
 			return View(list);
 			}
 
-
-		public IActionResult TeamBuilder()
+		public IActionResult Teams()
 			{
 			return View();
 			}

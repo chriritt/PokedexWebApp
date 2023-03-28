@@ -23,6 +23,7 @@
     /* Pokemon Colors */
     --pokeball-red: #B42C1F;
     --pokeball-red-dark: #902B21;
+    --pokemon-green: #4DAD5B;
     --pokemon-blue: #0075BE;
     --pokemon-blue-dark: #0A285F;
     --pokemon-yellow: #FFCC00;
@@ -41,7 +42,7 @@ body {
     transition: var(--tran-05);
     overflow-x: hidden;
     color: var(--antiflash-white);
-    font-size: 1.25rem;
+    font-size: 24px;
 }
 
 ::selection {
@@ -105,7 +106,6 @@ body {
     }
 
     .sidebar .text {
-        font-size: 20px;
         font-weight: 500;
         white-space: nowrap;
         opacity: 1;
@@ -383,13 +383,13 @@ header .image-text .Title {
 }
 
 .pokemon-table .col-3 {
-    flex-basis: 25%;
+    flex-basis: 15%;
     text-align: right;
     padding-right: 40px
 }
 
 .pokemon-table .col-4 {
-    flex-basis: 20%;
+    flex-basis: 35%;
     text-align: right;
 }
 
@@ -399,11 +399,10 @@ i {
 }
 
 i:hover {
-    font-family: Boxicons;
-    content: "\ede2";
+    color: var(--pokeball-red);
 }
 
-.add-to-team {
+.solid-button {
     cursor: pointer;
     font-size: 22px;
     font-weight: 500;
@@ -411,12 +410,35 @@ i:hover {
     color: var(--antiflash-white);
     border: 0px solid transparent;
     border-radius: 6px;
-    width: 175px;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: auto;
     height: 50px;
 }
 
-.add-to-team:hover{
-    background-color: var(--pokemon-blue-dark);
+    .solid-button:hover {
+        background-color: var(--pokemon-blue-dark);
+    }
+
+.outline-button {
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 400;
+    background-color: transparent;
+    color: var(--pokemon-yellow);
+    border: 2px solid var(--pokemon-yellow);
+    border-radius: 6px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 20px;
+    width: auto;
+    height: 50px;
+}
+
+.outline-button:hover{
+    background-color: var(--pokemon-yellow);
+    color: var(--onyx);
+    font-weight: 500;
 }
 
 @media all and (max-width: 767px) {
