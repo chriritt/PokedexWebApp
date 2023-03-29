@@ -337,7 +337,7 @@ header .image-text .Title {
 .pokemon-table li {
     border-radius: 6px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 
@@ -366,30 +366,41 @@ header .image-text .Title {
 }
 
 .pokemon-table .col-1 {
-    flex-basis: 10%;
+    flex-basis: 5%;
     text-align: left;
     justify-content: left;
 }
 
 .pokemon-table .col-2 {
-    flex-basis: 40%;
+    flex-basis: 15%;
     text-align: left;
     padding-left: 40px;
 }
 
-.pokemon-table .table-row .col-2 {
-    font-size: 35px;
-    font-weight: 400;
-}
+        .pokemon-table .table-row .col-1 {
+            color: var(--antiflash-white);
+            font-size: 25px;
+            font-weight: 500;
+        }
 
 .pokemon-table .col-3 {
-    flex-basis: 15%;
-    text-align: right;
-    padding-right: 40px
+    flex-basis: 35%;
+    text-align: left;
+    padding-left: 30px
 }
 
+        .pokemon-table .table-row .col-3 {
+            font-size: 30px;
+            font-weight: 400;
+        }
+
 .pokemon-table .col-4 {
-    flex-basis: 35%;
+    flex-basis: 15%;
+    text-align: right;
+}
+
+.pokemon-table .col-5 {
+    flex-basis: 30%;
     text-align: right;
 }
 
@@ -399,7 +410,7 @@ i {
 }
 
 i:hover {
-    color: var(--pokeball-red);
+    color: var(--pokemon-yellow);
 }
 
 .solid-button {
@@ -439,33 +450,6 @@ i:hover {
     background-color: var(--pokemon-yellow);
     color: var(--onyx);
     font-weight: 500;
-}
-
-@media all and (max-width: 767px) {
-    .pokemon-table .table-header {
-        display: none;
-    }
-
-    .pokemon-table li {
-        display: block;
-    }
-
-    .pokemon-table .col {
-        flex-basis: 100%;
-    }
-
-    .pokemon-table .col {
-        display: flex;
-        padding: 10px 0;
-    }
-
-        .pokemon-table .col:before {
-            color: #6c7a89;
-            padding-right: 10px;
-            content: attr(data-label);
-            flex-basis: 50%;
-            text-align: right;
-        }
 }
 
 

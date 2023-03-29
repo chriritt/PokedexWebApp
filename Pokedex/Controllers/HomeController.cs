@@ -1,28 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pokedex.Db.Repository;
 using Pokedex.Models;
 using Pokedex.UI.Data;
 using System.Diagnostics;
 
 namespace Pokedex.Controllers
 	{
-
-
 	public class HomeController : Controller
 		{
 
-		private readonly PokedexContext? _context;
+		/*private readonly PokedexContext? _context;*/
 
-		private readonly PokedexContext _pokedexDB = new PokedexContext();
 		private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger, PokedexContext? context)
+		public HomeController(ILogger<HomeController> logger)
 			{
 			_logger = logger;
-			_context = context;
 			}
 
-		public async Task<IActionResult> Index()
+		public IActionResult Index()
 			{
 			return View();
 			}
