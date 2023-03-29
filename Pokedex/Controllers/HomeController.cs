@@ -38,6 +38,11 @@ namespace Pokedex.Controllers
 			return View(list);
 			}
 
+		public IActionResult NewTeam()
+			{
+			return View();
+			}
+
 		public IActionResult Teams()
 			{
 			return View();
