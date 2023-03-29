@@ -12,6 +12,7 @@
 		public string? HeldItems { get; set; }
 		public string? Nature { get; set; }
 		public string? Sprite { get; set; }
+		public string SpriteUrl { get; set; }
 
 		public int TeamId { get; set; }
 		public Team? Team { get; set; }

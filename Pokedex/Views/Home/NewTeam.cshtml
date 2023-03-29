@@ -24,3 +24,60 @@
 		</div>
 	</div>
 </div>
+
+<div class="pokemon-search">
+	<div class="search-box">
+		@*<img class="icon-png" src="/assets/nav-icons/magnifier.png" alt="Search for a Pokemon"/>*@
+		<input type="text" placeholder="Search for a Pokémon by Name or ID">
+	</div>
+</div>
+
+
+
+<div class="pokemon-list-container">
+	<ul class="pokemon-table">
+		<li class="table-header">
+			<div class="col col-1">Sprite</div>
+			<div class="col col-2">Pokemon Name</div>
+			<div class="col col-4">Add to Team?</div>
+		</li>
+		@for (int i = 0; i < Model.Count; i++)
+			{
+			<li class="table-row">
+				<div class="col col-1" data-label="Sprite">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
+				<div class="col col-2" data-label="Pokemon Name">@Model[i].name</div>
+				<div class="col col-4" data-label="Add to Team">
+
+				<form method="post" asp-action="AddToTeam">
+				<input type="hidden" name="pokemonName" value="@Model[i].name" />
+				<input type="hidden" name="pokemonSpriteUrl" value="@($"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png")" />
+				 <button type ="submit" class="solid-button">Add to Team</button>
+				 </form>
+
+				</div>
+			</li>
+			}
+	</ul>
+
+</div>
+
+<script src="lib/jquery/dist/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function () {
+		$('.form-control.search').on("keyup", function () {
+			var poke_search = $(this).val().toLowerCase();
+			$("#upper").children().each(function () {
+				var stringData = $(this).children().children("p").text();
+				console.log("AAA")
+				console.log(stringData)
+				if (stringData.indexOf(poke_search) == -1) {
+					$(this).hide();
+				} else {
+
+					$(this).show();
+				}
+			})
+		})
+	})
+</script>

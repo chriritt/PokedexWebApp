@@ -6,14 +6,20 @@ using System.Diagnostics;
 
 namespace Pokedex.Controllers
 	{
+
+
 	public class HomeController : Controller
 		{
+
+		private readonly PokedexContext? _context;
+
 		private readonly PokedexContext _pokedexDB = new PokedexContext();
 		private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, PokedexContext? context)
 			{
 			_logger = logger;
+			_context = context;
 			}
 
 		public async Task<IActionResult> Index()
@@ -26,9 +32,20 @@ namespace Pokedex.Controllers
 			return View();
 			}
 
-		// Handles Api calls for the Pokemon Page
 
-		public async Task<IActionResult> Pokemon()
+		public IActionResult Pokemon()
+			{
+			return View();
+			}
+
+		public IActionResult Teams()
+			{
+
+			return View();
+			}
+
+		// Handles Api calls for the New Team Page
+		public async Task<IActionResult> NewTeam()
 			{
 			List<Pokemon> list = new List<Pokemon>();
 			Task.Run(async () =>
@@ -36,16 +53,6 @@ namespace Pokedex.Controllers
 				list = await PokemonClient.GetPokemon();
 			}).GetAwaiter().GetResult();
 			return View(list);
-			}
-
-		public IActionResult NewTeam()
-			{
-			return View();
-			}
-
-		public IActionResult Teams()
-			{
-			return View();
 			}
 
 		public IActionResult About()
