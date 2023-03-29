@@ -22,13 +22,22 @@ namespace Pokedex.Controllers
 			return View();
 			}
 
+		public async Task<IActionResult> Pokemon()
+			{
+			List<Pokemon> list = new List<Pokemon>();
+			Task.Run(async () =>
+			{
+				list = await PokemonClient.GetPokemon();
+			}).GetAwaiter().GetResult();
+			return View(list);
+			}
+
 		public IActionResult CaughtChecklist()
 			{
 			return View();
 			}
 
-
-		public IActionResult Pokemon()
+		public IActionResult NewTeam()
 			{
 			return View();
 			}
@@ -40,15 +49,7 @@ namespace Pokedex.Controllers
 			}
 
 		// Handles Api calls for the New Team Page
-		public async Task<IActionResult> NewTeam()
-			{
-			List<Pokemon> list = new List<Pokemon>();
-			Task.Run(async () =>
-			{
-				list = await PokemonClient.GetPokemon();
-			}).GetAwaiter().GetResult();
-			return View(list);
-			}
+
 
 		public IActionResult About()
 			{
