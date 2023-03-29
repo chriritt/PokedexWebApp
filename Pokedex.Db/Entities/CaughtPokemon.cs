@@ -1,4 +1,4 @@
-﻿namespace Pokedex.Db.DbModels
+﻿namespace Pokedex.Db.Entities
 	{
 	public class CaughtPokemon
 		{

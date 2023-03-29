@@ -2,15 +2,16 @@
 	ViewData["Title"] = "Caught Pokémon";
 }
 
+@using Pokedex.Db.Entities
+@model List<CaughtPokemon>
+
 <div class="main-content-section">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-7 col-sm-6">
 
 				<div class="content-title">
-					<h1>Here's a list of ' <span>Pokémon you have caught</span>!</h1>
-					<br />
-					<h3>Good job!</h3>
+					<h1>Here's a list of <span>Pokémon you have caught</span>!</h1>
 
 					<br />
 					<p></p>
@@ -18,4 +19,32 @@
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="pokemon-list-container">
+	<ul class="pokemon-table">
+		<li class="table-header">
+			<div class="col col-1">ID</div>
+			<div class="col col-2">Sprite</div>
+			<div class="col col-3">Name</div>	
+			<div class="col col-4">Caught</div>
+		</li>
+
+		@* Iterates through the JSON from the PokeApi and outputs to an HTML Table *@
+		@foreach (var poke in Model)
+			{
+				<li class="table-row">
+				<div class="col col-1" data-label="Pokemon Number">@poke.Id</div>
+				<div class="col col-2" data-label="Sprite">@poke.SpriteUrl</div>
+				<div class="col col-3" data-label="Pokemon Name">@poke.Name</div>
+
+
+					<div class="col col-4" data-label="Caught">
+						<button id="removeButton" class="solid-button">Remove</button>
+					</div>
+
+				</li>
+			}
+	</ul>
+	<br /><br /><br />
 </div>

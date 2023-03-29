@@ -24,11 +24,11 @@
 	</div>
 </div>
 
+@* Search bar Form - not currently functioning *@
 <div class="pokemon-search">
-	<div class="search-box">
-		@*<img class="icon-png" src="/assets/nav-icons/magnifier.png" alt="Search for a Pokemon"/>*@
-		<input type="text" placeholder="Search for a Pokémon by Name or ID">
-	</div>
+	<form class="search-box">
+		<input class="form-control search" type="text" placeholder="Search for a Pokémon by Name or ID">
+	</form>
 </div>
 
 
@@ -42,28 +42,58 @@
 			<div class="col col-4">Caught</div>
 		</li>
 
-		@{
-			var number = 1;
-		}
-
-		@for (int i = 0; i < Model.Count; i++)
+		
+		@* Iterates through the JSON from the PokeApi and outputs to an HTML Table *@
+		@for (int number = 0; number < Model.Count; number++)
 			{
 			<li class="table-row">
-				<div class="col col-1" data-label="Pokemon Number">@(number++)</div>
-				<div class="col col-2" data-label="Sprite">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{i + 1}.png\" alt=\"{@Model[i].name}\"/> ")</div>
-				<div class="col col-3" data-label="Pokemon Name">@Model[i].name</div>
-				<div class="col col-4" data-label="Caught"><i class='bx bx-check-circle'></i></div>
+				<div class="col col-1" data-label="Pokemon Number">@(number + 1)</div>
+				<div class="col col-2" data-label="Sprite">@Html.Raw($" <img src=\"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{number + 1}.png\" alt=\"{@Model[number].name}\"/> ")</div>
+				<div class="col col-3" data-label="Pokemon Name">@Model[number].name</div>	
+				<div class="col col-4" data-label="Caught">
+					<button id="saveButton" onclick="saveData(@(number + 1),'@(Model[number].name)', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/@(number + 1)')" class="solid-button">Caught!</button>
+				</div>
+
 			</li>
 			}
 	</ul>
 	<br /><br /><br />
 </div>
 
-<script src="lib/jquery/dist/jquery.min.js"></script>
+<script>
+	function saveData(number, Name, SpriteUrl) {
+		console.log(number, Name, SpriteUrl)
 
+		var pokemonData = {
+				Id: number,
+				Name: Name,
+				SpriteUrl: SpriteUrl
+			};
+
+	$.ajax({
+		type: "POST",
+		url: "/Home/AddToCaught",
+		data: JSON.stringify(pokemonData),
+		contentType: "application/json",
+		success: function (response) {
+			alert("Great Job!");
+		},
+		error: function () {
+			alert("Error, please try again.");
+		}
+	});
+}
+</script>
+
+
+
+
+
+@* Script for Search Bar - Not currently functioning *@
+@*<script src="lib/jquery/dist/jquery.min.js"></script>
 <script>
 	$(document).ready(function () {
-		$('.form-control.search').on("keyup", function () {
+		$('.search-box').on("keyup", function () {
 			var poke_search = $(this).val().toLowerCase();
 			$("#upper").children().each(function () {
 				var stringData = $(this).children().children("p").text();
@@ -78,4 +108,4 @@
 			})
 		})
 	})
-</script>
+</script>*@

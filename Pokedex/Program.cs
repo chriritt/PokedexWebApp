@@ -1,3 +1,5 @@
+using Pokedex.Db.Repository;
+
 namespace Pokedex
 	{
 	public class Program
@@ -8,6 +10,9 @@ namespace Pokedex
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			// Allows me to inject PokedexContext wherever I need it.
+			builder.Services.AddDbContext<PokedexContext>();
 
 			var app = builder.Build();
 

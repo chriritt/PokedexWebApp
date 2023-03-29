@@ -19,7 +19,7 @@ namespace Pokedex.Db.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.4");
 
-            modelBuilder.Entity("Pokedex.Db.DbModels.CaughtPokemon", b =>
+            modelBuilder.Entity("Pokedex.Db.Entities.CaughtPokemon", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -33,7 +33,7 @@ namespace Pokedex.Db.Migrations
                     b.ToTable("CaughtPokemon");
                 });
 
-            modelBuilder.Entity("Pokedex.Db.DbModels.PokemonTeam", b =>
+            modelBuilder.Entity("Pokedex.Db.Entities.PokemonTeam", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -76,7 +76,7 @@ namespace Pokedex.Db.Migrations
                     b.ToTable("Pokemans");
                 });
 
-            modelBuilder.Entity("Pokedex.Db.DbModels.Team", b =>
+            modelBuilder.Entity("Pokedex.Db.Entities.Team", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -90,9 +90,9 @@ namespace Pokedex.Db.Migrations
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("Pokedex.Db.DbModels.PokemonTeam", b =>
+            modelBuilder.Entity("Pokedex.Db.Entities.PokemonTeam", b =>
                 {
-                    b.HasOne("Pokedex.Db.DbModels.Team", "Team")
+                    b.HasOne("Pokedex.Db.Entities.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.Cascade)

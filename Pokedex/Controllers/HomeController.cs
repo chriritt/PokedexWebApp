@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Pokedex.Db.Entities;
+using Pokedex.Db.Repository;
 using Pokedex.Models;
 using Pokedex.UI.Data;
 using System.Diagnostics;
@@ -8,13 +10,15 @@ namespace Pokedex.Controllers
 	public class HomeController : Controller
 		{
 
-		/*private readonly PokedexContext? _context;*/
+		// Inject PokedexContext into the HomeController
+		private readonly PokedexContext? _context;
 
 		private readonly ILogger<HomeController> _logger;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, PokedexContext context)
 			{
 			_logger = logger;
+			_context = context;
 			}
 
 		public IActionResult Index()
@@ -24,6 +28,7 @@ namespace Pokedex.Controllers
 
 		public async Task<IActionResult> Pokemon()
 			{
+			// Pulls all Pokemon from the /pokemon endpoint and creates a list with the returned JSON data
 			List<Pokemon> list = new List<Pokemon>();
 			Task.Run(async () =>
 			{
@@ -32,9 +37,28 @@ namespace Pokedex.Controllers
 			return View(list);
 			}
 
+		[HttpPost]
+		public IActionResult AddToCaught(CaughtPokemon caughtPokemon)
+			{
+			// References the injected PokedexContext class and adds data to the DB using the CaughtPokemon model
+			using (var db = new PokedexContext())
+				{
+				db.CaughtPokemon.Add(caughtPokemon);
+				db.SaveChanges();
+				}
+			return Ok();
+			}
+
 		public IActionResult CaughtChecklist()
 			{
-			return View();
+			// Lists Pokemon in the Caught DB back to the View
+			List<CaughtPokemon> caught;
+
+			using (var db = new PokedexContext())
+				{
+				caught = db.CaughtPokemon.ToList();
+				}
+			return View(caught);
 			}
 
 		public IActionResult NewTeam()
@@ -47,9 +71,6 @@ namespace Pokedex.Controllers
 
 			return View();
 			}
-
-		// Handles Api calls for the New Team Page
-
 
 		public IActionResult About()
 			{

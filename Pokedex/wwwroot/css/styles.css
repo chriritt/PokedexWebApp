@@ -346,8 +346,8 @@ strong {
     transition: all .001s;
 }
 
-/* ===== Pokemon Table Styling ===== */
-.pokemon-search div.search-box {
+/* ===== Search Styling ===== */
+.pokemon-search form.search-box {
     display: flex;
     font-size: 24px;
     border-radius: 6px;
@@ -361,7 +361,7 @@ strong {
     margin-bottom: 40px;
 }
 
-    .pokemon-search div.search-box .icon-png {
+    .pokemon-search form.search-box .icon-png {
         height: 100%;
         max-height: 30px;
         padding-right: 20px;
@@ -369,7 +369,7 @@ strong {
         justify-content: center;        
     }
 
-    .pokemon-search div.search-box input {
+    .pokemon-search form.search-box input {
         padding-right: 10px;
         height: 100%;
         width: 100%;
@@ -383,6 +383,7 @@ strong {
         transition: var(--tran-05);
     }
 
+/* ===== Pokemon Table Styling ===== */
 .pokemon-list-container {
     width: auto;
     margin-left: auto;
@@ -456,7 +457,7 @@ strong {
     text-align: right;
 }*/
 
-i {
+.saveButton {
     font-size: 40px;
     cursor: pointer;
 }

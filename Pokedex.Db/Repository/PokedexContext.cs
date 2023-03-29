@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Pokedex.Db.DbModels;
+using Pokedex.Db.Entities;
 
 namespace Pokedex.Db.Repository
 	{
