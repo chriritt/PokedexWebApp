@@ -76,10 +76,10 @@
 		data: JSON.stringify(pokemonData),
 		contentType: "application/json",
 		success: function (response) {
-			alert("Great Job!");
+				alert("Great Job! This Pokémon was added to your Caught List.");
 		},
 		error: function () {
-			alert("Error, please try again.");
+			alert("Oh no! Something went wrong, please try again.");
 		}
 	});
 }

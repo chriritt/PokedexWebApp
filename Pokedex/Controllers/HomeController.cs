@@ -52,12 +52,8 @@ namespace Pokedex.Controllers
 		public IActionResult CaughtChecklist()
 			{
 			// Lists Pokemon in the Caught DB back to the View
-			List<CaughtPokemon> caught;
 
-			using (var db = new PokedexContext())
-				{
-				caught = db.CaughtPokemon.ToList();
-				}
+			var caught = _context.CaughtPokemon.ToList();
 			return View(caught);
 			}
 

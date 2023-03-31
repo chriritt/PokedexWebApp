@@ -6,7 +6,7 @@ namespace Pokedex.Db.Repository
 	public class PokedexContext : DbContext
 		{
 		public DbSet<Team> Teams { get; set; }
-		public DbSet<PokemonTeam> Pokemans { get; set; }
+		public DbSet<TeamMember> Pokemans { get; set; }
 		public DbSet<CaughtPokemon> CaughtPokemon { get; set; }
 
 		public string DbPath { get; }

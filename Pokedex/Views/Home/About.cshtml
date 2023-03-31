@@ -17,23 +17,52 @@
 					<h3>www.github.com/chriritt</h3>
 
 					<br />
-					<p>This web application was built using <b>PokeApiNet</b> which was built by mtrdp642 on GitHub. Mtrdp642 also created a handy NuGet package to facilitate easier use of the API.</p>
+						<p>
+							<h4>APP DESCRIPTION</h4>
+							The Pokedex Web App displays a list of Pokémon that are in the Official Pokédex. From there, the user can mark a Pokémon as caught or add them to a team. Once added to a team, the user can then select their Pokémon's moveset and held items.
+							<br /><br />
 
-					<p>The user interface of the PokéDex was designed with Figma and developed in Visual Studio using ASP.Net MVC using Entity Framework for database access.</p>
+							<h4>FEATURES</h4>
+							The following are a list of features from the Project Specifications that I've implemented:
+							<br /><br />
+							MAKE YOUR APP ASYNCRONOUS <br />
+							Pokédex asycronously fetches data from the PokéApi and displays in on an MVC View. Pokémon in the list load into the View asyncronously so as not to slow down the application. Then after the list is loaded and displayed, the user can move a Pokémon to either the CaughtPokemon list or the MyTeams list, which happens asyncronously through a Javascript Function and an Ajax Method.
+						<br /><br />
+							CREATE A DICTIONARY OR LIST<br />
+							Using the PokéApi and it's corresponding JSON data, I generated a List<> of over 1000 Pokémon, that list was then displayed to the Pokémon View by way of an API Call in the Home Controller.
+						<br /><br />
+							HAVE 2 OR MORE ENTITIES<br />
+							This app contains 3 Entities, (Team, TeamMember, & CaughtPokemon) that are used with PokedexContext to interact with an Entity Framework Core Sqlite Database.
+						<br /><br />
+							API<br />
+							This Web Application relies heavily on the usage of a RESTful API. Calls are made to the API that return JSON data which is then deserialized and displayed to Views using Controllers. Additionally, the usage of an HttpPost allows users to extract specific data from the returned JSON and save it to an database
+						<br /><br />
+							ENTITY FRAMEWORK<br />
+							This app creates EF Core databases, saves items to the DB on the click of a button and then displays that information to a different View.
+						<br /><br />
+							<h4>ARCHITECTURE</h4>
+							This app is an ASP.Net Core MVC Application with a 2-Layer structure.
+						<br /><br />
+							Pokedex.Db<br />
+							This layer contains all of the database access logic such as the Team, TeamMember, & CaughtPokemon models as well as the PokedexContext repository and various Migrations.
+						<br /><br />
+							Pokedex.UI<br />
+							The UI layer of course contains the user interface elements such as various HMTL, CSS and JavaScript with a little bit of Bootstrap here and there. Additionally, this layer is home to the API access client PokemonClient and it's associated models Pokemon, PokemonData, and PokemonParser.
+						<br /><br />
+							<h4>DEPENDENCIES</h4>
+							Entity Framework Core<br />
+							Sqlite<br />
+							Newtonsoft.JSON<br /><br />
 
-					<p><strong>Features Implemented</strong></p>
+							<h4>FUTURE UPDATES</h4>
+							<h5>PLEASE NOTE: This app is not 100% complete. However, I still believe I've met the Project Requirements.</h5>
+						With that said, here are some updates I'd like to make in the future:<br /><br />
 
-					<p>I can be contacted via the social pages below:</p>
+						Get database information to display back to the Views correctly.<br /><br />
+						Complete the areas that I had originally planned but weren't implemented due to time constraints, such as: Team Builder, displaying Pokémon by Type.<br /><br />
+						Transition to a 3-layer structure by separating all API logic from the UI layer.<br /><br />
+						Implement a search function on the pages where Pokémon are presented in list form.<br /><br />
+						My original plan was to use the .Net package for the PokéApi which is called PokéApiNet. However, I wasn't able to implement. I'd like to get that up and running at some point.<br /><br />
+							Display Pokémon on cards that contain more info, instead of in a table.
+						</p>
 
-					<div class="about-icons">
-						<ul>
-							<li><a href="https://github.com/chriritt" target="_blank"><i id="github" class="bx bxl-github"></i></a> </li>
-							<li><a href="https://twitter.com/chrisritterdev" target="_blank"><i id="twitter" class="bx bxl-twitter"></i></a> </li>
-							<li><a href="https://www.linkedin.com/in/chriswritter/" target="_blank"><i id="linkedin" class="bx bxl-linkedin"></i></a> </li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
